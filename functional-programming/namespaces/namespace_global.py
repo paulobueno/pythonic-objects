@@ -13,3 +13,6 @@ class A:
     print(a)
     print(globals())
     print(locals())
+
+
+f()
