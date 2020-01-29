@@ -13,3 +13,7 @@ def execute(f, n=1):
     for _ in range(n):
         f()
 ```
+5. Using `map()` and `filter()`:  
+    a. Both functions receive a function as first argument  
+    b. `filter()` receives a boolean function  
+    c. `map()` receives a transformation function
