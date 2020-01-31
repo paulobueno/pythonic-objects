@@ -17,3 +17,6 @@ def execute(f, n=1):
     a. Both functions receive a function as first argument  
     b. `filter()` receives a boolean function  
     c. `map()` receives a transformation function
+6. Operator: Native Python commands
+    a. `operator.itemgetter(0)` returns the first element of a list
+    b. There are other operators, broadly used by more advanced programmers
