@@ -21,4 +21,7 @@ def execute(f, n=1):
     a. `operator.itemgetter(0)` returns the first element of a list  
     b. There are other operators, broadly used by more advanced programmers
 7. Decorators:  
-    a. Closure
+    a. Closure: Functions inside functions
+    b. `nonlocal` and `global`  
+    c. `@mark`  
+    d. 
