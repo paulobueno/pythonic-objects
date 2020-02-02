@@ -2,21 +2,24 @@ from functools import wraps
 from time import sleep, strftime
 
 
-def get_time(f):
-    @wraps(f)
-    def insert_time(*args, **kwargs):
-        print(strftime('%H:%M:%S'))
-        return f(*args, **kwargs)
+def get_time(tms='%H:%M:%S'):
+    def decorator(f):
+        @wraps(f)
+        def insert_time(*args, **kwargs):
+            print(strftime(tms))
+            return f(*args, **kwargs)
 
-    return insert_time
+        return insert_time
+
+    return decorator
 
 
-@get_time
+@get_time()
 def number():
     return 10
 
 
-@get_time
+@get_time(tms='%D %T')
 def hello_name(name):
     return f'Hello {name}!'
 

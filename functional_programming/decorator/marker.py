@@ -6,6 +6,5 @@ def get_marked():
 
 
 def mark(f):
-    global _marked
     _marked.append(f)
     return f
