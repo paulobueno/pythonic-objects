@@ -1,20 +1,29 @@
 from functools import wraps
 from time import sleep, strftime
+from decorator import decorator, getfullargspec
 
 
-def get_time(tms='%H:%M:%S'):
-    def decorator(f):
-        @wraps(f)
-        def insert_time(*args, **kwargs):
-            print(strftime(tms))
-            return f(*args, **kwargs)
+# def get_time(fn=None, *, tms='%H:%M:%S'):
+#     if fn is not None:
+#         return get_time(tms='%H:%M:%S')(fn)
+#
+#     def decorator(f):
+#         @wraps(f)
+#         def insert_time(*args, **kwargs):
+#             print(strftime(tms))
+#             return f(*args, **kwargs)
+#
+#         return insert_time
+#
+#     return decorator
 
-        return insert_time
+@decorator
+def get_time(f, tms='%H:%M:%S', *args, **kwargs):
+    print(strftime(tms))
+    return f(*args, **kwargs)
 
-    return decorator
 
-
-@get_time()
+@get_time
 def number():
     return 10
 
@@ -25,7 +34,9 @@ def hello_name(name):
 
 
 if __name__ == '__main__':
+    print(getfullargspec(number))
     print(number())
+    print(getfullargspec(hello_name))
     print(hello_name('Paulo'))
     print(hello_name.__name__)
     sleep(1)
