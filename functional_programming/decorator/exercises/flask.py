@@ -25,7 +25,6 @@ set()
 >>> app.run('/not_a_page',)
 404
 """
-from decorator import decorator
 
 
 class Flask:
